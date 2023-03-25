@@ -1,0 +1,118 @@
+﻿@model PcMarket.Models.ViewModels.ProductoVM
+@{
+    var titulo = "Crear Nuevo producto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post" asp-action="Upsert" enctype="multipart/form-data">
+    @if (Model.Producto.Id != 0)
+    {
+        titulo = "Editar Producto";
+        <input asp-for="Producto.Id" hidden />
+    }
+    <div class="border p-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
+            <h2 class="text-info">@titulo</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label asp-for="Producto.Name" class="form-label">Nombre del Producto</label>
+                            <input asp-for="Producto.Name" class="form-control" />
+                            <span asp-validation-for="Producto.Name" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label asp-for="Producto.Quantity" class="form-label">Asigne Stock del producto</label>
+                            <input asp-for="Producto.Quantity" class="form-control" />
+                            <span asp-validation-for="Producto.Quantity" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label asp-for="Producto.Price" class="form-label">Precio del Producto</label>
+                            <input asp-for="Producto.Price" class="form-control" />
+                            <span asp-validation-for="Producto.Price" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label asp-for="Producto.ShortDescription" class="form-label">Descripcion corta del Producto</label>
+                            <input asp-for="Producto.ShortDescription" class="form-control" />
+                            <span asp-validation-for="Producto.ShortDescription" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label asp-for="Producto.LongDescription" class="form-label">Descripcion larga del Producto</label>
+                            <textarea asp-for="Producto.LongDescription" class="form-control summernote"></textarea>
+                            <span asp-validation-for="Producto.LongDescription" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label asp-for="Producto.ImageUrl" class="form-label">Imagen del Producto</label>
+                            <input type="file" name="files" id="imagenId" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label asp-for="Producto.CategoriaId" class="form-label">Categoria</label>
+                            <select asp-for="Producto.CategoriaId" asp-items="@Model.ListaCategorias" class="form-select">
+                                <option disabled-selected>--Selecione una categoria</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="d-grid gap-2 d-md-block">
+                        @if (Model.Producto.Id != 0)
+                        {
+                            <button type="submit" class="btn btn-primary">Actualizar</button>
+                        }
+                        else
+                        {
+                            <button type="submit" onclick="return validarImagen()" class="btn btn-primary">Crear Nuevo</button>
+                        }
+                        <a asp-controller="Productos" asp-action="Index" class="btn btn-success">Regresar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                @if (Model.Producto.Id != 0)
+                {
+                    <img src="@WC.ImagenRuta@Model.Producto.ImageUrl" width="100%" style="border-radius:5px; border:1px solid #bbb" />
+                }
+
+            </div>
+        </div>
+
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+    <script>
+        $(document).ready(function () {
+            $('.summernote').summernote({
+                height: 250
+            });
+        });
+    </script>
+
+    <script>
+        function validarImagen() {
+            if (document.getElementById("imagenId").value == "") {
+                swal("Error", "Seleccione una imagen", "error");
+                return false;
+            }
+            return true;
+        }
+    </script>
+}
+

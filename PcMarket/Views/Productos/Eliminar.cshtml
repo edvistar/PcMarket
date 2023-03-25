@@ -1,0 +1,91 @@
+﻿@model PcMarket.Models.Producto
+@{
+    var titulo = "Esta seguro de eliminar el producto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post" asp-action="Eliminar">
+    <input asp-for="Id" hidden />
+    <div class="border p-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
+            <h2 class="text-info">@titulo</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label asp-for="Name" class="form-label">Nombre del Producto</label>
+                            <input asp-for="Name" disabled class="form-control" />
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label asp-for="Quantity" class="form-label">Stock del producto</label>
+                            <input asp-for="Quantity" disabled class="form-control" />
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label asp-for="Price" class="form-label">Precio del Producto</label>
+                            <input asp-for="Price" disabled class="form-control" />
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label asp-for="ShortDescription" class="form-label">Descripcion corta del Producto</label>
+                            <input asp-for="ShortDescription" disabled class="form-control" />
+                            
+                        </div>
+                    </div>
+                    <div class="row" hidden>
+                        <div class="col-md-6">
+                            <label asp-for="LongDescription" class="form-label">Descripcion larga del Producto</label>
+                            <textarea asp-for="LongDescription" class="form-control summernote"></textarea>
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label asp-for="ImageUrl" class="form-label">Imagen del Producto</label>
+                            <input asp-for="ImageUrl" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label asp-for="CategoriaId" class="form-label">Categoria</label>
+                            <input asp-for="CategoriaId" hidden class="form-control" />
+                            <input asp-for="Categoria.Name" disabled class="form-control" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="d-grid gap-2 d-md-block">
+                        <button type="submit" class="btn btn-primary">Eliminar</button>
+                        <a asp-controller="Productos" asp-action="Index" class="btn btn-success">Regresar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                @if (Model.Id != 0)
+                {
+                    <img src="@WC.ImagenRuta@Model.ImageUrl" width="100%" style="border-radius:5px; border:1px solid #bbb" />
+                }
+
+            </div>
+        </div>
+
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+   
+}
+
+

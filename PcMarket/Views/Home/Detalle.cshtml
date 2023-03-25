@@ -1,0 +1,57 @@
+﻿@model PcMarket.Models.ViewModels.DetalleVM
+<div class="">
+    <form method="post">
+
+        <div class="container backgroundWhite pt-4">
+            <div class="card" style="border:1px solid #E74C3C; ">
+                <div class="card-header bg-ligth ml-0 row container" style="border-radius: 0px;">
+                    <div class="col-12 col-md-6">
+                        <h1 class="text-dark">@Model.Producto.Name</h1>
+                    </div>
+                    
+                </div>
+                <div class="card-body">
+                    <div class="container rounded p-2">
+                        <div class="row">
+                            <div class="col-12 col-lg-4 p-1 text-center">
+                                <img src="@WC.ImagenRuta@Model.Producto.ImageUrl" width="100%" class="rounded" />
+                            </div>
+                            <div class="col-12 col-lg-8">
+                                <div class="row pl-3">
+
+                                    <div class="col-12">
+                                        <h1>@Model.Producto.Categoria.Name</h1>
+                                        <h3 style="color:red"> @((Model.Producto.Price).ToString("c"))</h3>
+                                        
+                                        <h3 class="text-success"></h3>
+
+                                        <p class="text-secondary">@Html.Raw(Model.Producto.LongDescription)</p>
+                                        <h4>Cantidad Disponible: @Model.Producto.Quantity</h4>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-ligth">
+                    <div class="row">
+                        <div class="col-6 col-md-6 offset-3">
+                            <a asp-action="Index" class="btn btn-square form-control btn-lg" style="height:50px; background-color:#F5B041;">Regresar</a>
+                        </div>
+                       @* <div class="col-12 col-md-6 ">
+                            @if (Model.ExisteEnCarro)
+                            {
+                                <a asp-action="RemoverDeCarro" asp-route-Id="@Model.Producto.Id" class="btn btn-warning btn-square form-control btn-lg" style="height:50px;">Remover del Carro</a>
+                            }
+                            else
+                            {
+                                <button type="submit" class="btn btn-info form-control btn-lg" style="height:50px;">Agregar al Carro</button>
+                            }
+                        </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
