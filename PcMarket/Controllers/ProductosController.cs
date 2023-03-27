@@ -19,7 +19,7 @@ namespace PcMarket.Controllers
     
         public IActionResult Index()
         {
-            IEnumerable<Producto> lista = _db.Producto.Include(c=> c.Categoria);
+            IEnumerable<Producto> lista = _db.Producto.Include(c => c.Categoria);
             return View(lista);
             
         }

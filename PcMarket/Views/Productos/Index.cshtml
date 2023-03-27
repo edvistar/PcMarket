@@ -49,6 +49,7 @@
             <tbody>
                 @foreach (var item in Model)
                 {
+                    
                     <tr>
                         <th>@item.Name</th>
                         <th>@item.Price</th>
@@ -56,8 +57,17 @@
                         <th>@item.ShortDescription</th>
                         <th>@item.Categoria.Name</th>
                         <th>@item.Descuento</th>
-                        <th>@item.TieneDescuento</th>
-                        
+                        <th>
+                            @if (@item.TieneDescuento == true)
+                            {
+                                <label>SI</label>
+                            }else
+                            {
+                               <label>NO</label>
+                                
+                            }
+                            </th>
+
                         <th class="text-center">
                             <div class="w-75 btn-group" role="group">
                                 <a asp-controller="Productos" asp-action="upsert" asp-route-Id="@item.Id" class="btn btn-primary mx-2"><i class="fa-regular fa-pen-to-square"></i></a>
