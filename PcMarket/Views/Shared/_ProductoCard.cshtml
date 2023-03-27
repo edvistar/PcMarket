@@ -1,6 +1,16 @@
 ﻿@model PcMarket.Models.Producto
 <div class="col-lg-3 col-md-3 pb-4 filter @Model.Categoria.Name.Replace(' ','_')">
 	<div class="card bg-white rounded shadow-sm" style="border:3px solid #33332E">
+	@if(@Model.TieneDescuento == true){
+		<div class="col-6 p-2">
+			<span class="badge p-2 border w-95 text-dark" style="background-color:lavenderblush">@Model.Descuento %</span>
+		</div>
+	}else{
+			<div class="col-6 p-2">
+				<span class="badge p-2 border w-95 text-white" style="visibility:hidden">@Model.Descuento %</span>
+			</div>
+	}
+		
 	<!-- Product image-->
 	<img class="card-img-top" src="@WC.ImagenRuta@Model.ImageUrl" alt="Imagen Card" />
 	<!-- Product details-->

@@ -22,6 +22,9 @@ namespace PcMarket.Models
         public int CategoriaId { get; set; }
         [ForeignKey("CategoriaId")]
         public virtual Categoria? Categoria { get; set; }
+        public int Descuento { get; set; }
+        [Display(Name ="Si")]
+        public bool TieneDescuento { get; set; }
 
     }
 }

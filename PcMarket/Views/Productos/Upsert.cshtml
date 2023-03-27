@@ -41,6 +41,22 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
+                            <label asp-for="Producto.Descuento" class="form-label">Porcentaje de descuento</label>
+                            <input asp-for="Producto.Descuento" class="form-control" />
+                            <span asp-validation-for="Producto.Descuento" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <label asp-for="Producto.TieneDescuento" class="form-label">Aplicar descuento</label>
+                <select asp-for="Producto.TieneDescuento" class="form-select">
+                    <option value=true>Si</option>
+                    <option value=false>No</option>
+                </select>
+            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
                             <label asp-for="Producto.ShortDescription" class="form-label">Descripcion corta del Producto</label>
                             <input asp-for="Producto.ShortDescription" class="form-control" />
                             <span asp-validation-for="Producto.ShortDescription" class="text-danger"></span>
