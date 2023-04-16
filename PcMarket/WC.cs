@@ -3,7 +3,7 @@
     public static class WC
     {
         public static string ImagenRuta = @"\imagenes\producto\";
-        public static string AdmiRole = "Admin";
-        public static string ClienteRol = "Cliente";
+        public const string AdmiRole = "Admin";
+        public const string ClienteRol = "Cliente";
     }
 }

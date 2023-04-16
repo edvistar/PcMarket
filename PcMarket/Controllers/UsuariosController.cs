@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PcMarket.Data;
 using PcMarket.Models;
+using System.Data;
 
 namespace PcMarket.Controllers
 {
+    [Authorize(Roles = WC.AdmiRole)]
     public class UsuariosController : Controller
     {
         private readonly ApplicationDbContext _db;

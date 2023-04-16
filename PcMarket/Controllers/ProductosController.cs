@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PcMarket.Data;
@@ -7,6 +8,7 @@ using PcMarket.Models.ViewModels;
 
 namespace PcMarket.Controllers
 {
+    [Authorize(Roles =WC.AdmiRole)]
     public class ProductosController : Controller
     {
         private readonly ApplicationDbContext _db;
