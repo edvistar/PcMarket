@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "e70xI8/rv2dgzO4J53j2uH/CYC4cZdOlmlZOnQJQ5mU=",
+  "Hash": "jwJdX3+Fct53el6QA5+H+bgVVurKFzDCB4TC6Fbge/k=",
   "Source": "PcMarket",
   "BasePath": "_content/PcMarket",
   "Mode": "Default",
@@ -1088,12 +1088,12 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\EDUARDO\\source\\repos\\PcMarket\\PcMarket\\wwwroot\\css\\styles.css",
+      "Identity": "C:\\Users\\EDUARDO\\source\\repos\\PcMarket\\PcMarket\\wwwroot\\css\\style.css",
       "SourceId": "PcMarket",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\EDUARDO\\source\\repos\\PcMarket\\PcMarket\\wwwroot\\",
       "BasePath": "_content/PcMarket",
-      "RelativePath": "css/styles.css",
+      "RelativePath": "css/style.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1102,7 +1102,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\styles.css"
+      "OriginalItemSpec": "wwwroot\\css\\style.css"
     },
     {
       "Identity": "C:\\Users\\EDUARDO\\source\\repos\\PcMarket\\PcMarket\\wwwroot\\favicon.ico",
